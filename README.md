@@ -4,7 +4,7 @@
 
 | Column     | Type    | Options       |
 | ---------- | ------- | ------------- |
-| user_name  | string  | null : false  |
+| name       | string  | null : false  |
 | email      | string  | null : false  |
 | password   | string  | null : false  |
 | nickname   | string  | null : false  |
@@ -21,20 +21,20 @@
 | Column        | Type       | Options       |
 | ------------- | ---------- | --------------|
 | image         |            |               |
-| item_name     | text       | null : false  |
+| name          | text       | null : false  |
 | description   | text       | null : false  |
-| item_category | string     | null : false  |
-| item_status   | string     | null : false  |
-| shipping_cost | string     | null : false  |
-| shipping_area | string     | null : false  |
-| shipping_day  | string     | null : false  |
-| item_price    | string     | null : false  |
+| category_id   | string     | null : false  |
+| status_id     | string     | null : false  |
+| cost_id       | string     | null : false  |
+| area_id       | string     | null : false  |
+| day_id        | string     | null : false  |
+| price         | string     | null : false  |
 | user          | references |               |
 
   ### Association
 
   - belongs_to        :user
-  - has_one           :payment
+  - belongs_to        :payment
   - has_one_attached  :image
 
 
@@ -42,9 +42,6 @@
 
 | Column               | Type    | Options       |
 | -------------------- | ---------- | ---------- |
-| credit_info          |            |            |
-| credit_period        |            |            |
-| security_code        |            |            |
 | user                 | references |            |
 | item                 | references |            |
 
