@@ -25,8 +25,12 @@
 | ------------- | ---------- | ---------------- |
 | name          | string     | null : false     |
 | description   | text       | null : false     |
+| category_id   | integer    | null : false     |
 | status_id     | integer    | null : false     |
-| price         | string     | null : false     |
+| cost_id       | integer    | null : false     |
+| area_id       | integer    | null : false     |
+| day_id        | integer    | null : false     |
+| price         | integer    | null : false     |
 | user          | references | foreign_key :true|
 
   ### Association
@@ -54,7 +58,7 @@
 
 | Column               | Type       | Options          |
 | -------------------- | ---------- | -----------------|
-| postal_code_id       | integer    | null : false     |
+| postal_code_id       | string    | null : false     |
 | prefecture_id        | integer    | null : false     |
 | municipality         | string     | null : false     |
 | banchi               | string     | null : false     |
