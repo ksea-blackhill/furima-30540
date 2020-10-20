@@ -4,11 +4,14 @@
 
 | Column     | Type    | Options       |
 | ---------- | ------- | ------------- |
-| name       | string  | null : false  |
+| first_name | string  | null : false  |
+| last_name  | string  | null : false  |
+| kana_first | string  | null : false  |
+| kana_last  | string  | null : false  |
 | email      | string  | null : false  |
 | password   | string  | null : false  |
 | nickname   | string  | null : false  |
-| birthday   | string  | null : false  |
+| birthday   | date    | null : false  |
 
   ### Association
 
@@ -20,14 +23,13 @@
 
 | Column        | Type       | Options       |
 | ------------- | ---------- | --------------|
-| image         |            |               |
-| name          | text       | null : false  |
+| name          | string     | null : false  |
 | description   | text       | null : false  |
-| category_id   | string     | null : false  |
-| status_id     | string     | null : false  |
-| cost_id       | string     | null : false  |
-| area_id       | string     | null : false  |
-| day_id        | string     | null : false  |
+| category_id   | integer    | null : false  |
+| status_id     | integer    | null : false  |
+| cost_id       | integer    | null : false  |
+| area_id       | integer    | null : false  |
+| day_id        | integer    | null : false  |
 | price         | string     | null : false  |
 | user          | references |               |
 
@@ -40,10 +42,10 @@
 
   ## paymentsテーブル
 
-| Column               | Type    | Options       |
-| -------------------- | ---------- | ---------- |
-| user                 | references |            |
-| item                 | references |            |
+| Column               | Type       | Options          |
+| -------------------- | ---------- | ---------------- |
+| user                 | references | foreign_key :true|
+| item                 | references | foreign_key :true|
 
   ### Association
 
@@ -54,15 +56,15 @@
 
   ## addressテーブル
 
-| Column               | Type       | Options       |
-| -------------------- | ---------- | --------------|
-| postal_code          | string     | null : false  |
-| prefecture           | string     | null : false  |
-| municipality         | string     | null : false  |
-| banchi               | string     | null : false  |
-| building             | string     | null : false  |
-| tel                  | string     | null : false  |
-| payment              | references |               |
+| Column               | Type       | Options          |
+| -------------------- | ---------- | -----------------|
+| postal_code          | string     | null : false     |
+| prefecture           | string     | null : false     |
+| municipality         | string     | null : false     |
+| banchi               | string     | null : false     |
+| building             | string     |                  |
+| tel                  | string     | null : false     |
+| payment              | references | foreign_key :true|
 
   ### Association
 
