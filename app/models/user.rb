@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :kana_last,     presence: true
   validates :birthday,      presence: true
   validates :email,         uniqueness: true
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{6,50}+\z/
+   validates :password, presence: true,format: { with: VALID_PASSWORD_REGEX}
 end 
