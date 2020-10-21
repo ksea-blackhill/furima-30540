@@ -47,6 +47,13 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
+      it 'emailに一意性がなければ登録できない' do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
+      end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
@@ -80,20 +87,20 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
-      it "first_nameが半角だと登録できない" do
+      it 'first_nameが半角だと登録できない' do
         @user.first_name = 'ｼﾝｼﾞｮｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        expect(@user.errors.full_messages).to include('First name is invalid')
       end
       it 'last_nameが空だと登録できない' do
         @user.last_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
-      it "last_nameが半角だと登録できない" do
+      it 'last_nameが半角だと登録できない' do
         @user.last_name = 'ﾂﾖｼ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid")
+        expect(@user.errors.full_messages).to include('Last name is invalid')
       end
       it 'kana_firstが空だと登録できない' do
         @user.kana_first = ''
@@ -103,7 +110,7 @@ describe User do
       it 'kana_firstが半角だと登録できない' do
         @user.kana_first = 'ｼﾝｼﾞｮｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Kana first is invalid")
+        expect(@user.errors.full_messages).to include('Kana first is invalid')
       end
       it 'kana_lastが空だと登録できない' do
         @user.kana_last = ''
@@ -113,7 +120,7 @@ describe User do
       it 'kana_lastが半角だと登録できない' do
         @user.kana_last = 'ﾂﾖｼ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Kana last is invalid")
+        expect(@user.errors.full_messages).to include('Kana last is invalid')
       end
       it 'birthdayが空だと登録できない' do
         @user.birthday = ''
