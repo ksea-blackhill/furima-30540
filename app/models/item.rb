@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :cost
   belongs_to_active_hash :area
   belongs_to_active_hash :day
-  
+
   belongs_to :user
   has_one_attached :image
 
@@ -14,7 +14,6 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :price
-    
   end
 
   with_options numericality: { other_than: 1 } do
@@ -25,6 +24,5 @@ class Item < ApplicationRecord
     validates :day_id
   end
 
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
-
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 end
