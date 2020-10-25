@@ -170,14 +170,10 @@
     </ul>
   </div>
 </div>
+<a href="items/new">
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <% if user_signed_in? %>
-    <a href="items/new">
-  <% else %>
-    <a href="/">
-  <% end %>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  </a>
 </div>
+</a>
 <%= render "shared/footer" %>

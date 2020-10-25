@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.addEventListener('mousedown', () => {
   const priceInput = document.getElementById("item-price")
   priceInput.addEventListener("input",() => {
     const inputValue = priceInput.value;
@@ -7,5 +7,5 @@ window.addEventListener('load', () => {
     addTax.innerHTML = inputValue * 0.1
     const Profit = document.getElementById("profit");
     Profit.innerHTML = inputValue - addTax.innerHTML
-  })
+  });
 });
