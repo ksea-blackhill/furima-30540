@@ -7,7 +7,7 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string     :banchi,          null: false
       t.string     :building
       t.string     :tel,             null: false
-      t.references :payment,        foreign_key: true
+      t.references :payment,        foreign_key: true, dependent: :destroy
       t.timestamps
     end
   end
