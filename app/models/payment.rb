@@ -1,6 +1,6 @@
 class Payment < ApplicationRecord
   belongs_to :user
-  belongs_to :item, dependent: :destroy
+  belongs_to :item
   has_one    :address
 
 end
