@@ -4,11 +4,7 @@ class PaymentsController < ApplicationController
   before_action :move_to_root, only: :index
 
   def index
-    if @item.payment.nil?
       @form = Form.new
-    else
-      redirect_to root_path
-    end
   end
 
   def create
