@@ -68,6 +68,11 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include('Tel is invalid')
       end
+      it 'telは半角数字でも10桁（固定電話）、もしくは11桁（携帯電話）でないと登録できない' do
+        @form.tel = '090123456789'
+        @form.valid?
+        expect(@form.errors.full_messages).to include('Tel is invalid')
+      end
     end
   end
 end

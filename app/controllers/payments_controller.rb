@@ -4,7 +4,11 @@ class PaymentsController < ApplicationController
   before_action :move_to_root, only: :index
 
   def index
-    @form = Form.new
+    if @item.payment.nil?
+      @form = Form.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -38,6 +42,6 @@ class PaymentsController < ApplicationController
   end
 
   def move_to_root
-    redirect_to root_path if current_user == @item.user
+    redirect_to root_path if current_user == @item.user || @item.payment
   end
 end
