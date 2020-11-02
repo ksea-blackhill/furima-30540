@@ -73,6 +73,11 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include('Tel is invalid')
       end
+      it 'telは数字のみでない登録できない' do
+        @form.tel = 'telnumber'
+        @form.valid?
+        expect(@form.errors.full_messages).to include('Tel is invalid')
+      end
     end
   end
 end

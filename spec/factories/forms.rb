@@ -7,6 +7,5 @@ FactoryBot.define do
     banchi      { '港区１−１' }
     building    { 'マンション３０３' }
     tel         { '09000000000' }
-    # assosiation :item
   end
 end
