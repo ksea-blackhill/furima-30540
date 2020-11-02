@@ -15,8 +15,8 @@
 
   ### Association
 
-  - has_many :items
-  - has_one  :payment
+  - has_many  :items
+  - has_many  :payments
 
 
   ## itemsテーブル
